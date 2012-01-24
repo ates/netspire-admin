@@ -1,0 +1,2 @@
+module Private::DashboardHelper
+end
