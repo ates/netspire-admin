@@ -2,8 +2,7 @@ class Admin
   include CouchRest::ExtendedDocument
   include CouchRest::Validation
 
-  devise :database_authenticatable, :rememberable, :timeoutable,
-    :token_authenticatable
+  devise :database_authenticatable, :timeoutable, :token_authenticatable
 
   unique_id :login
 
