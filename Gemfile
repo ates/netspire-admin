@@ -4,10 +4,10 @@ gem 'rails', '3.2.0'
 
 # Extra gems
 gem 'devise'
-gem 'couchrest', :path => '/home/ates/wildchild/couchrest'
-gem 'devise-couchrest', :path => '/home/ates/wildchild/couchrest-more'
-gem 'orm_adapter-couchrest', :path => '/home/ates/wildchild/couchrest-more'
-gem 'couchrest-active_model', :path => '/home/ates/wildchild/couchrest-more'
+gem 'couchrest', :path => '../couchrest'
+gem 'devise-couchrest', :path => '../couchrest-more'
+gem 'orm_adapter-couchrest', :path => '../couchrest-more'
+gem 'couchrest-active_model', :path => '../couchrest-more'
 
 # Gems used only for assets and not required
 # in production environments by default.

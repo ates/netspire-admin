@@ -1,12 +1,12 @@
 PATH
-  remote: /home/ates/wildchild/couchrest
+  remote: ../couchrest
   specs:
     couchrest (0.0.1.wildchild)
       activemodel (~> 3.2.0)
       rest-client (~> 1.6.7)
 
 PATH
-  remote: /home/ates/wildchild/couchrest-more
+  remote: ../couchrest-more
   specs:
     couchrest-active_model (0.0.1)
     devise-couchrest (0.0.1)

@@ -8,7 +8,6 @@ class Account
   property :encrypted_password, String
   property :first_name, String
   property :last_name, String
-  property :transactions, [Transaction], :default => []
 
   timestamps!
 
@@ -20,31 +19,23 @@ class Account
 
   def balance
     balance = 0
-    self.transactions.each do |t|
+    Transaction.by_account(self.id).each do |t|
       balance += t.amount
     end
     balance
   end
 
   def deposit(amount)
-    self.transactions << Transaction.new(:amount => amount,
-                                         :code => Transaction::Type::DEPOSIT,
-                                         :created_at => Time.now.utc)
-    save!
+    Transaction.create!(:account => self.id, :amount => amount,
+                        :code => Transaction::Type::DEPOSIT)
   end
 
   def withdraw(amount)
-    self.transactions << Transaction.new(:amount => (- amount),
-                                         :code => Transaction::Type::WITHDRAW,
-                                         :created_at => Time.now.utc)
-    save!
-  end
-
-  def self.by_login(options = {})
-    view(:by_login, options)
+    Transaction.create!(:account => self.id, :amount => (- amount),
+                        :code => Transaction::Type::WITHDRAW)
   end
 
   def self.find_for_authentication(conditions)
-    view(:by_login, :id => conditions[:login], :limit => 1).first
+    view(:by_login, :key => conditions[:login], :limit => 1).first
   end
 end
