@@ -21,6 +21,11 @@ class Admin
   end
 
   def self.find_for_authentication(conditions)
-    view(:by_login, :key => conditions[:login], :limit => 1).first
+    if conditions[:authentication_token]
+      view(:by_authentication_token,
+           :key => conditions[:authentication_token], :limit => 1).first
+    else
+      view(:by_login, :key => conditions[:login], :limit => 1).first
+    end
   end
 end
