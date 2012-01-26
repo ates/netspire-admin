@@ -14,4 +14,8 @@ NetspireAdmin::Application.routes.draw do
       root :to => 'devise/sessions#new'
     end
   end
+
+  namespace :private do
+    resources :accounts
+  end
 end
