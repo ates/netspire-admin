@@ -18,11 +18,7 @@ class Account
   end
 
   def balance
-    balance = 0
-    Transaction.by_account(self.id).each do |t|
-      balance += t.amount
-    end
-    balance
+    Transaction.by_account(self.id)["rows"].map(&:values).flatten[1]
   end
 
   def deposit(amount)

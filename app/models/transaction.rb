@@ -23,6 +23,6 @@ class Transaction
   end
 
   def self.by_account(id)
-    view(:by_account, :key => id)
+    view(:by_account, { :key => id, :reduce => true })
   end
 end
