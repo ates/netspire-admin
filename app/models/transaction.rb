@@ -7,10 +7,11 @@ class Transaction
     option :WITHDRAW, 1
   end
 
-  property :account, String
+  property :account
+  property :service
   property :amount, Float
   property :code, Integer
-  property :comment, String
+  property :comment
 
   timestamps!
 
