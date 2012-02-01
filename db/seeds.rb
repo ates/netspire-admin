@@ -32,7 +32,7 @@ attr8 = RadiusAttribute.create!(:name => "Netspire-Allowed-NAS",
 service_link1 = ServiceLink.create!(:account => account1.id,
                                     :service => service1.id,
                                     :plan => plan1.id,
-                                    :login => 'joel',
+                                    :login => 'joel1',
                                     :password => 'secret')
 service_link1.radius_replies << RadiusReply.new(:name => attr1.name, :value => 90)
 service_link1.radius_replies << RadiusReply.new(:name => attr3.name, :value => 2)
