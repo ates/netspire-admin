@@ -23,7 +23,7 @@ class Transaction
     Type.from_value(self[:code])
   end
 
-  def self.by_account(id)
-    view(:by_account, { :key => id, :reduce => true })
+  def self.balance_by_account(id)
+    view(:balance_by_account, { :key => id, :reduce => true })
   end
 end

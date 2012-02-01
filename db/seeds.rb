@@ -35,6 +35,6 @@ service_link1 = ServiceLink.create!(:account => account1.id,
                                     :login => 'joel',
                                     :password => 'secret')
 service_link1.radius_replies << RadiusReply.new(:name => attr1.name, :value => 90)
-service_link1.radius_replies << RadiusReply.new(:name => attr3.name, :value => 1)
-service_link1.radius_replies << RadiusReply.new(:name => attr4.name, :value => 2)
+service_link1.radius_replies << RadiusReply.new(:name => attr3.name, :value => 2)
+service_link1.radius_replies << RadiusReply.new(:name => attr4.name, :value => 1)
 service_link1.save!

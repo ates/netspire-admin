@@ -18,7 +18,7 @@ class Account
   end
 
   def balance
-    Transaction.by_account(self.id)["rows"].map(&:values).flatten[1]
+    Transaction.balance_by_account(self.id)["rows"].map(&:values).flatten[1]
   end
 
   def deposit(amount)

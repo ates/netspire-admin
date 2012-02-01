@@ -1,0 +1,4 @@
+{
+  "_id": "_design/IptrafficSession",
+  "language": "javascript"
+}
