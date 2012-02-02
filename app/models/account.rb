@@ -27,7 +27,7 @@ class Account
   end
 
   def withdraw(amount)
-    Transaction.create!(:account => self.id, :amount => (- amount),
+    Transaction.create!(:account => self.id, :amount => amount,
                         :code => Transaction::Type::WITHDRAW)
   end
 
