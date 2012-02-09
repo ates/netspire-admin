@@ -7,10 +7,11 @@ account1.deposit(10)
 account1.deposit(20)
 account1.withdraw(5)
 
-plan1 = Plan.create!(:name => 'Ultimate', :title => 'Awesome Ultimate')
 
 service1 = Service.create!(:name => 'iptraffic',
                            :title => 'Internet access via PPP')
+
+plan1 = Plan.create!(:name => 'Ultimate', :title => 'Awesome Ultimate', :service => service1.name, :initiation_fee => 10)
 
 attr1 = RadiusAttribute.create!(:name => "Acct-Interim-Interval",
                                 :description => "This attribute indicates the number of seconds between each interim update in seconds for this specific session")

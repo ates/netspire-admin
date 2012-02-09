@@ -27,4 +27,19 @@ class ServiceLink
   validates :plan, :presence => true
   validates :login, :presence => true
   validates :password, :presence => true
+
+  after_create :perform_charges
+
+  private
+
+  def perform_charges
+    plan = Plan.by_name(self.plan)
+    if plan.initiation_fee > 0
+      Transaction.create!(:account => self.account,
+                          :amount => plan.initiation_fee,
+                          :code => Transaction::Type::WITHDRAW,
+                          :comment => "Initiation charges")
+    end
+  end
+
 end
