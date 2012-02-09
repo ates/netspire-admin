@@ -19,11 +19,19 @@ class Transaction
   validates :amount, :presence => true, :numericality => true
   validates :code, :inclusion => { :in => Type.values }
 
+  before_save :assert_valid_amount
+
   def code
     Type.from_value(self[:code])
   end
 
   def self.balance_by_account(id)
     view(:balance_by_account, { :key => id, :reduce => true })
+  end
+
+  private
+
+  def assert_valid_amount
+    raise ArgumentError, "Argument must be greater than zero" unless self.amount > 0
   end
 end

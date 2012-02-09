@@ -37,7 +37,7 @@ class Plan
 
   # There could be a requirement to charge a customer
   # periodically even if a customer is suspended because of some reason
-  property:suspention_periodic_fee, Decimal, :default => 0
+  property :suspention_periodic_fee, Decimal, :default => 0
 
   # Assuming a product was suspended due to some reason
   # and now it needs it's activation.
