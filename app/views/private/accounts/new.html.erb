@@ -1,0 +1,17 @@
+<% content_for :sidebar do %>
+  <div class="well sidebar-nav">
+    <ul class="nav nav-list">
+      <li class="nav-header">Account managment</li>
+      <li><h5><%= link_to 'List of accounts', private_account_path %></h5></li>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for([:private, @account], :html => { :class => "form-horizontal" }) do |f| -%>
+  <%= render "shared/error_messages", :target => @account %>
+  <%= render :partial => "form", :object => f %>
+  <div class="form-actions">
+    <%= f.submit 'Create', :class => "btn btn-primary" %>
+    <%= f.submit 'Reset', :type => "reset", :class => "btn" %>
+  </div>
+<% end -%>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Netspire Control Panel</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <style type="text/css">
+    body {
+      padding-top: 60px;
+      padding-bottom: 40px;
+    }
+    .sidebar-nav {
+      padding: 9px 0;
+    }
+    .field_with_errors { display: inline; }
+  </style>
+  <%= yield :html_head %>
+</head>
+<body>
+
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <%= link_to 'Netspire', private_dashboard_path, :class => 'brand' %>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li><%= link_to('Accounts', private_accounts_path) %></li>
+          </ul>
+
+          <ul class="nav pull-right">
+            <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">Logged in as <%= current_admin.login %><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Profile</a></li>
+                <li class="divider"/>
+
+                <li><%= link_to "Sign out", destroy_admin_session_path %></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span2">
+        <%= yield :sidebar %>
+      </div>
+
+      <div class="span10">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

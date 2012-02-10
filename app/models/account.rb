@@ -2,12 +2,15 @@ class Account
   include CouchRest::ExtendedDocument
   include CouchRest::Validation
 
+  devise :database_authenticatable, :timeoutable
+
   unique_id :login
 
-  property :login, String
-  property :encrypted_password, String
-  property :first_name, String
-  property :last_name, String
+  property :login
+  property :encrypted_password
+  property :first_name
+  property :last_name
+  property :active, Boolean, :default => true
 
   timestamps!
 
@@ -29,6 +32,10 @@ class Account
   def withdraw(amount)
     Transaction.create!(:account => self.id, :amount => amount,
                         :code => Transaction::Type::WITHDRAW)
+  end
+
+  def self.by_login(login)
+    view(:by_login, :key => login, :limit => 1).first
   end
 
   def self.find_for_authentication(conditions)

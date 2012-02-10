@@ -1,4 +1,4 @@
-#Admin.create!(:login => 'admin', :password => 'secret')
+Admin.create!(:login => 'admin', :password => 'secret')
 
 account1 = Account.create!(:login => 'joel', :password => 'secret',
                            :first_name => 'Joel', :last_name => 'Albers')
@@ -11,7 +11,8 @@ account1.withdraw(5)
 service1 = Service.create!(:name => 'iptraffic',
                            :title => 'Internet access via PPP')
 
-plan1 = Plan.create!(:name => 'Ultimate', :title => 'Awesome Ultimate', :service => service1.name, :initiation_fee => 10)
+plan1 = Plan.create!(:name => 'Ultimate', :title => 'Awesome Ultimate',
+                     :service => service1.name, :initiation_fee => 10)
 
 attr1 = RadiusAttribute.create!(:name => "Acct-Interim-Interval",
                                 :description => "This attribute indicates the number of seconds between each interim update in seconds for this specific session")

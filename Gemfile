@@ -8,6 +8,7 @@ gem 'couchrest', :path => '../couchrest'
 gem 'devise-couchrest', :path => '../couchrest-more'
 gem 'orm_adapter-couchrest', :path => '../couchrest-more'
 gem 'couchrest-active_model', :path => '../couchrest-more'
+gem 'will_paginate'
 
 # Gems used only for assets and not required
 # in production environments by default.

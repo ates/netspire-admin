@@ -1,0 +1,29 @@
+<% content_for :sidebar do %>
+  <div class="well sidebar-nav">
+    <ul class="nav nav-list">
+      <li class="nav-header">Account managment</li>
+      <li><h5><%= link_to 'Create an account', new_private_account_path %></h5></li>
+    </ul>
+  </div>
+<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th class="yellow header headerSortDown">Login</th>
+      <th class="red header">Full name</th>
+      <th class="blue header">Balance</th>
+      <th class="blue header">Active</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @accounts.each do |account| %>
+      <tr>
+        <td><%= link_to account.login, edit_private_account_path(account) %></td>
+        <td><%= account.full_name %></td>
+        <td><%= account.balance %></td>
+        <td><%= tick_or_cross(account.active) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

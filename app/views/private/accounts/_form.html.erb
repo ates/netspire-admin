@@ -1,0 +1,37 @@
+<legend>New account</legend>
+
+<div class="control-group">
+  <%= form.label :first_name %>
+  <div class="controls">
+    <%= form.text_field :first_name, :class => "input-xlarge" %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= form.label :last_name %>
+  <div class="controls">
+    <%= form.text_field :last_name, :class => "input-xlarge" %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= form.label :login %>
+  <div class="controls">
+    <%= form.text_field :login, :class => "input-xlarge" %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= form.label :password %>
+  <div class="controls">
+    <%= form.password_field :password, :class => "input-xlarge" %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= form.label :active %>
+  <div class="controls">
+    <%= form.check_box :active %>
+    Yes, serve this account
+  </div>
+</div>
