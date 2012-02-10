@@ -1,5 +1,5 @@
 class Private::AccountsController < PrivateController
-  respond_to :html
+  respond_to :html, :json
 
   def index
     @accounts = Account.all
@@ -10,7 +10,7 @@ class Private::AccountsController < PrivateController
   end
 
   def edit
-    @account = Account.by_login(params[:id])
+    @account = Account.get(params[:id])
   end
 
   def create
@@ -18,6 +18,18 @@ class Private::AccountsController < PrivateController
     @account.save!
     flash[:notice] = "Account was created"
     redirect_to(private_accounts_path)
+  end
+
+  def update
+    @account = Account.get(params[:id])
+    @account.attributes = params[:account]
+    @account.save!
+    flash[:notice] = "Account was updated"
+    redirect_to(edit_private_account_url(@account))
+  end
+
+  def transactions
+    @transactions = Transaction.by_login(params[:id])
   end
 
   protected

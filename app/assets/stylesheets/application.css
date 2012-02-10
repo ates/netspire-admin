@@ -11,3 +11,14 @@
  *= require_self
  *= require_tree .
 */
+div.spinner
+{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    overflow: auto;
+    z-index: 1234;
+}

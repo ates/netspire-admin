@@ -13,3 +13,24 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {
+  // Display ajax progress
+  $('#spinner').ajaxSpinner();
+});
+
+(function($) {
+  $.fn.extend({
+    ajaxSpinner: function() {
+      return this.each(function() {
+        var element = $(this);
+        element.ajaxStart(function() {
+          $(this).css('position', 'fixed').show();
+        });
+        element.ajaxStop(function() {
+          $(this).hide();
+        });
+      });
+    }
+  });
+})(jQuery);

@@ -7,6 +7,8 @@
   </div>
 <% end %>
 
+<legend>New account</legend>
+
 <%= form_for([:private, @account], :html => { :class => "form-horizontal" }) do |f| -%>
   <%= render "shared/error_messages", :target => @account %>
   <%= render :partial => "form", :object => f %>

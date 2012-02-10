@@ -12,7 +12,11 @@ NetspireAdmin::Application.routes.draw do
     namespace :private do
       match '/dashboard', :to => 'dashboard#index', :as => :dashboard
 
-      resources :accounts
+      resources :accounts do
+        member do
+          get :transactions
+        end
+      end
     end
   end
 

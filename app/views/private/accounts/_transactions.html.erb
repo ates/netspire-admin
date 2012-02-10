@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Account</th>
+      <th>Amount</th>
+      <th>Code</th>
+      <th>Comment</th>
+      <th>Created at</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.account %></td>
+        <td><%= transaction.amount %></td>
+        <td><%= transaction.code %></td>
+        <td><%= transaction.comment %></td>
+        <td><%= transaction.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

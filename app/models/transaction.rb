@@ -29,6 +29,10 @@ class Transaction
     view(:balance_by_account, { :key => id, :reduce => true })
   end
 
+  def self.by_login(id)
+    view(:by_login, :key => id)
+  end
+
   private
 
   def assert_valid_amount

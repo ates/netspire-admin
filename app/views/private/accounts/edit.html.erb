@@ -1,0 +1,34 @@
+<% content_for :sidebar do %>
+  <div class="well sidebar-nav">
+    <ul class="nav nav-list">
+      <li class="nav-header">Account managment</li>
+      <li><h5><%= link_to 'Create an account', new_private_account_path %></h5></li>
+      <li><h5><%= link_to 'List of accounts', private_account_path %></h5></li>
+    </ul>
+  </div>
+<% end %>
+
+<% content_for :html_head do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('ul#tabs li').click(function() {
+        $('ul#tabs li').removeClass('active');
+        $(this).addClass('active');
+      });
+    });
+  </script>
+<% end %>
+
+<legend>Editing account</legend>
+
+<ul class="nav nav-tabs" id="tabs">
+  <li class="active">
+  <%= link_to "Profile", edit_private_account_path(@account), :remote => true %>
+  </li>
+  <li><%= link_to 'Payments', transactions_private_account_path(@account), :remote => true %></li>
+  <li><%= link_to 'Service Links', edit_private_account_path(@account), :remote => true %></li>
+</ul>
+
+<div id="result">
+  <%= render :partial => "profile" %>
+</div>
