@@ -11,6 +11,7 @@ NetspireAdmin::Application.routes.draw do
 
     namespace :private do
       match '/dashboard', :to => 'dashboard#index', :as => :dashboard
+      match '/profile', :to => 'dashboard#profile', :as => :profile
 
       resources :accounts do
         member do

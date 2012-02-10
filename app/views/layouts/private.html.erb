@@ -14,7 +14,6 @@
     .sidebar-nav {
       padding: 9px 0;
     }
-    .field_with_errors { display: inline; }
   </style>
   <%= yield :html_head %>
 </head>
@@ -27,23 +26,19 @@
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container-fluid">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
         <%= link_to 'Netspire', private_dashboard_path, :class => 'brand' %>
         <div class="nav-collapse">
           <ul class="nav">
             <li><%= link_to('Accounts', private_accounts_path) %></li>
+            <li><%= link_to('Services', '#') %></li>
+            <li><%= link_to('Plans', '#') %></li>
           </ul>
 
           <ul class="nav pull-right">
             <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">Logged in as <%= current_admin.login %><b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Profile</a></li>
+                <li><%= link_to 'Profile', private_profile_path %></li>
                 <li class="divider"/>
 
                 <li><%= link_to "Sign out", destroy_admin_session_path %></li>
@@ -54,6 +49,15 @@
       </div>
     </div>
   </div>
+
+  <% flash.each do |key, value| %>
+    <strong>
+      <%= content_tag(:div, value,
+                      :style => "text-align: center; position: absolute; width: 100%",
+                      :id => "flash_",
+                      :class => "alert #{key}") %>
+    </strong>
+  <% end %>
 
   <div class="container-fluid">
     <div class="row-fluid">

@@ -17,6 +17,9 @@
 $(document).ready(function() {
   // Display ajax progress
   $('#spinner').ajaxSpinner();
+
+  // fadeout flash messages
+  $("div#[id^='flash_']").fadeOut(3000);
 });
 
 (function($) {
