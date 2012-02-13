@@ -1,0 +1,38 @@
+<div class="control-group">
+  <%= edit_form.label :first_name %>
+  <div class="controls">
+    <%= edit_form.text_field :first_name, :class => "input-xlarge" %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= edit_form.label :last_name %>
+  <div class="controls">
+    <%= edit_form.text_field :last_name, :class => "input-xlarge" %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= edit_form.label :login %>
+  <div class="controls">
+    <%= edit_form.text_field :login, :class => "input-xlarge" %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= edit_form.label :password %>
+  <div class="controls">
+    <%= edit_form.password_field :password, :class => "input-xlarge",
+                            :id => "password_field",
+                            :disabled => true %>
+    <%= link_to "Reset password", "#", :id => "reset_password" %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= edit_form.label :active %>
+  <div class="controls">
+    <%= edit_form.check_box :active %>
+    Yes, serve this account
+  </div>
+</div>

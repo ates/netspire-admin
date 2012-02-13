@@ -15,6 +15,10 @@
         $('ul#tabs li').removeClass('active');
         $(this).addClass('active');
       });
+
+      $('#reset_password').click(function() {
+        $('#password_field').removeAttr("disabled");
+      });
     });
   </script>
 <% end %>

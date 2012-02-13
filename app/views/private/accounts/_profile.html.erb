@@ -1,6 +1,6 @@
 <%= form_for([:private, @account], :html => { :class => "form-horizontal" }) do |f| -%>
   <%= render "shared/error_messages", :target => @account %>
-  <%= render :partial => "form", :object => f %>
+  <%= render :partial => "edit_form", :object => f %>
   <div class="form-actions">
     <%= f.submit 'Update', :class => "btn btn-primary" %>
     <%= f.submit 'Reset', :type => "reset", :class => "btn" %>
