@@ -5,7 +5,7 @@
       <th>Amount</th>
       <th>Code</th>
       <th>Comment</th>
-      <th>Created at</th>
+      <th>Created</th>
     </tr>
   </thead>
   <tbody>
@@ -15,7 +15,7 @@
         <td><%= transaction.amount %></td>
         <td><%= transaction.code %></td>
         <td><%= transaction.comment %></td>
-        <td><%= transaction.created_at %></td>
+        <td><%= l(transaction.created_at, :format => :short) %></td>
       </tr>
     <% end %>
   </tbody>

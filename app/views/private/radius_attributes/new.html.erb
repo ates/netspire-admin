@@ -1,0 +1,19 @@
+<% content_for :sidebar do %>
+  <div class="well sidebar-nav">
+    <ul class="nav nav-list">
+      <li class="nav-header">RADIUS managment</li>
+      <li><h5><%= link_to 'List of attributes', private_radius_attributes_path %></h5></li>
+    </ul>
+  </div>
+<% end %>
+
+<legend>New attribute</legend>
+
+<%= form_for([:private, @radius_attribute], :html => { :class => "form-horizontal" }) do |f| -%>
+  <%= render "shared/error_messages", :target => @radius_attribute %>
+  <%= render :partial => "form", :object => f %>
+  <div class="form-actions">
+    <%= f.submit 'Create', :class => "btn btn-primary" %>
+    <%= f.submit 'Reset', :type => "reset", :class => "btn" %>
+  </div>
+<% end -%>

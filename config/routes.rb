@@ -19,6 +19,10 @@ NetspireAdmin::Application.routes.draw do
           get :service_links
         end
       end
+
+      scope("/settings") do
+        resources :radius_attributes
+      end
     end
   end
 
