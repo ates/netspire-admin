@@ -1,9 +1,13 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.0'
+gem 'railties', '~> 3.2.1'
+gem 'actionpack', '~> 3.2.1'
+gem 'actionmailer', '~> 3.2.1'
+
+gem 'tzinfo'
 
 # Extra gems
-gem 'devise'
+gem 'devise', '~> 2.0.1'
 gem 'couchrest', :path => '../couchrest'
 gem 'devise-couchrest', :path => '../couchrest-more'
 gem 'orm_adapter-couchrest', :path => '../couchrest-more'

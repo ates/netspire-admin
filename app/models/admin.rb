@@ -1,8 +1,12 @@
+require "devise_token_shim"
+
 class Admin
   include CouchRest::ExtendedDocument
   include CouchRest::Validation
 
   devise :database_authenticatable, :timeoutable, :token_authenticatable
+
+  include Devise::Models::Authenticatable::Shim
 
   unique_id :login
 
