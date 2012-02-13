@@ -16,6 +16,7 @@ NetspireAdmin::Application.routes.draw do
       resources :accounts do
         member do
           get :transactions
+          get :service_links
         end
       end
     end

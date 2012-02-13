@@ -32,6 +32,10 @@ class Private::AccountsController < PrivateController
     @transactions = Transaction.by_login(params[:id])
   end
 
+  def service_links
+    @service_links = ServiceLink.by_account(params[:id])
+  end
+
   protected
 
   def handle_record_invalid

@@ -30,6 +30,10 @@ class ServiceLink
 
   after_create :perform_charges
 
+  def self.by_account(account)
+    view(:by_account, :key => account)
+  end
+
   private
 
   def perform_charges
