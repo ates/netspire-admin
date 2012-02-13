@@ -6,9 +6,10 @@ class Admin
 
   unique_id :login
 
-  property :login, String
-  property :encrypted_password, String
-  property :authentication_token, String
+  property :login
+  property :encrypted_password
+  property :authentication_token
+  property :active, Boolean, :default => true
 
   timestamps!
 
