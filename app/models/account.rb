@@ -24,13 +24,15 @@ class Account
     Transaction.balance_by_account(self.id)["rows"].map(&:values).flatten[1]
   end
 
-  def deposit(amount)
+  def deposit(amount, comment = "")
     Transaction.create!(:account => self.id, :amount => amount,
+                        :comment => comment,
                         :code => Transaction::Type::DEPOSIT)
   end
 
-  def withdraw(amount)
+  def withdraw(amount, comment = "")
     Transaction.create!(:account => self.id, :amount => amount,
+                        :comment => comment,
                         :code => Transaction::Type::WITHDRAW)
   end
 

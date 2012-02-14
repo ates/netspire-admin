@@ -32,7 +32,7 @@
 <div class="control-group">
   <label class="control-label">Balance</label>
   <div class="controls">
-    <span class="input-xlarge uneditable-input"><%= @account.balance %></span>
+    <input type="text" id="account_balance" disabled="true" value="<%= @account.balance %>" class="input-xlarge uneditable-input"/>
     <%= link_to "Deposit/Withdraw", "#", :id => "change_balance" %>
   </div>
 </div>
@@ -43,4 +43,20 @@
     <%= edit_form.check_box :active %>
     Yes, serve this account
   </div>
+</div>
+
+<!-- PopUp form for deposit/withdraw operations with account's balance -->
+<div id="balance-form" title="Deposit/Withdraw balance">
+  <div class="control-group">
+      <label for="amount" class="control-label">Amount</label>
+      <div class="controls">
+        <input type="text" name="amount" id="amount" class="input-xlarge"/>
+      </div>
+    </div>
+    <div class="control-group">
+      <label for="comment" class="control-label">Comment</label>
+      <div class="controls">
+        <input type="text" name="comment" id="comment" class="input-xlarge"/>
+      </div>
+    </div>
 </div>
