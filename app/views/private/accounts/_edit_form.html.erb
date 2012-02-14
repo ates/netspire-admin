@@ -30,6 +30,14 @@
 </div>
 
 <div class="control-group">
+  <label class="control-label">Balance</label>
+  <div class="controls">
+    <span class="input-xlarge uneditable-input"><%= @account.balance %></span>
+    <%= link_to "Deposit/Withdraw", "#", :id => "change_balance" %>
+  </div>
+</div>
+
+<div class="control-group">
   <%= edit_form.label :active %>
   <div class="controls">
     <%= edit_form.check_box :active %>

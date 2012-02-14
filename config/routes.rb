@@ -17,6 +17,8 @@ NetspireAdmin::Application.routes.draw do
         member do
           get :transactions
           get :service_links
+          put :deposit
+          put :withdraw
         end
       end
 
