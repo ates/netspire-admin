@@ -1,39 +1,69 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>Service</th>
-      <th>Plan</th>
-      <th>Login</th>
-      <th>Password</th>
-      <th>RADIUS replies</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @service_links.each do |link| %>
-      <tr>
-        <td><%= link.service %></td>
-        <td><%= link.plan %></td>
-        <td><%= link.login %></td>
-        <td><%= link.password %></td>
-        <td>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% link.radius_replies.each do |reply| %>
-                  <tr>
-                    <td><%= reply.name %></td>
-                    <td><%= reply.value %></td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-          </td>
-    <% end %>
-  </tr>
-  </tbody>
-</table>
+<script type="text/javascript">
+  $(".collapse").collapse();
+</script>
+
+<div id="accordion" class="accordion">
+<% @service_links.each do |link| %>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a href="#<%= link.id %>" data-parent="#accordion" data-toggle="collapse" class="accordion-toggle">
+        <%= link.title %>
+      </a>
+    </div>
+    <div class="accordion-body in collapse" id="<%= link.id %>" style="heigh: auto;">
+      <div class="accordion-inner">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Service Code</th>
+              <th>Properties</th>
+              <th>RADIUS replies</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= link.service %></td>
+              <td>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Value</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% link.service_properties.each do |prop| %>
+                      <tr>
+                        <td><%= prop.name %></td>
+                        <td><%= prop.value %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </td>
+              <td>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Value</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% link.radius_replies.each do |reply| %>
+                      <tr>
+                        <td><%= reply.name %></td>
+                        <td><%= reply.value %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+<% end%>
+</div>

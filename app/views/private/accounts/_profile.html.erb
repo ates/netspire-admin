@@ -1,3 +1,9 @@
+<script type="text/javascript">
+  $('#reset_password').click(function() {
+    $('#password_field').removeAttr("disabled");
+  });
+</script>
+
 <%= form_for([:private, @account], :html => { :class => "form-horizontal" }) do |f| -%>
   <%= render "shared/error_messages", :target => @account %>
   <%= render :partial => "edit_form", :object => f %>

@@ -8,8 +8,14 @@ account1.deposit(20)
 account1.withdraw(5)
 
 
+service_opts1 = ["login", "password"]
+service_opts2 = ["mac-address"]
 service1 = Service.create!(:name => 'iptraffic',
-                           :title => 'Internet access via PPP')
+                           :title => 'Internet access via PPP',
+                           :options => service_opts1)
+service2 = Service.create!(:name => 'voip',
+                           :title => 'Voice Over IP',
+                           :options => service_opts2)
 
 plan1 = Plan.create!(:name => 'Ultimate', :title => 'Awesome Ultimate',
                      :service => service1.name, :initiation_fee => 10)
@@ -33,10 +39,16 @@ attr8 = RadiusAttribute.create!(:name => "Netspire-Allowed-NAS",
 
 service_link1 = ServiceLink.create!(:account => account1.id,
                                     :service => service1.id,
-                                    :plan => plan1.id,
-                                    :login => 'joel1',
-                                    :password => 'secret')
+                                    :plan => plan1.id)
 service_link1.radius_replies << RadiusReply.new(:name => attr1.name, :value => 90)
 service_link1.radius_replies << RadiusReply.new(:name => attr3.name, :value => 2)
 service_link1.radius_replies << RadiusReply.new(:name => attr4.name, :value => 1)
+service_link1.service_properties << ServiceProperty.new(:name => service_opts1[0], :value => 'joel')
+service_link1.service_properties << ServiceProperty.new(:name => service_opts1[1], :value => 'secret')
 service_link1.save!
+
+service_link2 = ServiceLink.create!(:account => account1.id,
+                                    :service => service2.id,
+                                    :plan => plan1.id)
+service_link2.service_properties << ServiceProperty.new(:name => service_opts2[0], :value => '00:02:b3:4c:aa:54')
+service_link2.save!
