@@ -21,6 +21,7 @@ NetspireAdmin::Application.routes.draw do
           put :withdraw
         end
       end
+      resources :services
 
       scope("/settings") do
         resources :radius_attributes

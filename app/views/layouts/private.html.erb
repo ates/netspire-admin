@@ -30,14 +30,14 @@
         <div class="nav-collapse">
           <ul class="nav">
             <li><%= link_to('Accounts', private_accounts_path) %></li>
+            <li><%= link_to 'Services', private_services_path %></li>
+            <li><%= link_to('Plans', '#') %></li>
             <li class="dropdown">
               <a data-toggle="dropdown" class="dropdown-toggle" href="#">Settings<b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><%= link_to 'RADIUS attributes', private_radius_attributes_path %></li>
               </ul>
             </li>
-            <li><%= link_to('Services', '#') %></li>
-            <li><%= link_to('Plans', '#') %></li>
           </ul>
 
           <ul class="nav pull-right">
