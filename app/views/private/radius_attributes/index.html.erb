@@ -20,7 +20,7 @@
       <tr>
         <td><%= link_to attr.name, edit_private_radius_attribute_path(attr) %></td>
         <td><%= truncate(attr.description, :length => 60) %></td>
-        <td><%= l(attr.created_at, :format => :short) %></td>
+        <td><%= localized_time(attr.created_at) %></td>
       </tr>
     <% end %>
   </tbody>

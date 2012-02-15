@@ -15,7 +15,7 @@
         <td><%= transaction.amount %></td>
         <td><%= transaction.code %></td>
         <td><%= transaction.comment %></td>
-        <td><%= l(transaction.created_at, :format => :short) %></td>
+        <td><%= localized_time(transaction.created_at) %></td>
       </tr>
     <% end %>
   </tbody>
