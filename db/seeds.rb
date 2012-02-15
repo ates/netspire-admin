@@ -21,21 +21,21 @@ plan1 = Plan.create!(:name => 'Ultimate', :title => 'Awesome Ultimate',
                      :service => service1.name, :initiation_fee => 10)
 
 attr1 = RadiusAttribute.create!(:name => "Acct-Interim-Interval",
-                                :description => "This attribute indicates the number of seconds between each interim update in seconds for this specific session")
+                                :description => "Number of seconds between each interim update in seconds for this specific session")
 attr2 = RadiusAttribute.create!(:name => "Framed-IP-Address",
-                                :description => "This attribute indicates the address to be configured for the user")
+                                :description => "Address to be configured for the user")
 attr3 = RadiusAttribute.create!(:name => "Service-Type",
-                                :description => "This attribute indicates the type of service the user has requested, or the type of service to be provided")
+                                :description => "Type of service the user has requested, or the type of service to be provided")
 attr4 = RadiusAttribute.create!(:name => "Framed-Protocol",
-                                :description => "This attribute indicates the framing to be used for framed access")
+                                :description => "Framing protocol to be used for framed access")
 attr5 = RadiusAttribute.create!(:name => "Netspire-Framed-Pool",
-                                :description => "This attribute indicates the pool of IP addresses that need to use")
+                                :description => "Pool of IP addresses that need to use")
 attr6 = RadiusAttribute.create!(:name => "Netspire-Upstream-Speed-Limit",
-                                :description => "This attribute indicates the UpStream speed limit")
+                                :description => "UpStream speed limit")
 attr7 = RadiusAttribute.create!(:name => "Netspire-Downstream-Speed-Limit",
-                                :description => "This attribute indicates the DownStream speed limit")
+                                :description => "DownStream speed limit")
 attr8 = RadiusAttribute.create!(:name => "Netspire-Allowed-NAS",
-                                :description => "This attribute indicates the NAS identifier to which the user may connect")
+                                :description => "NAS identifier to which the user allow connect")
 
 service_link1 = ServiceLink.create!(:account => account1.id,
                                     :service => service1.id,

@@ -30,7 +30,7 @@ class Transaction
   end
 
   def self.by_login(id)
-    view(:by_login, :key => id)
+    view(:by_login, :key => id, :descending => true)
   end
 
   private
