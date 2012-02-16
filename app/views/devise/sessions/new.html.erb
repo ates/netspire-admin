@@ -31,23 +31,23 @@
 
 <div id="main">
   <div id="form">
-    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-      <div class="clearfix">
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form-horizontal" }) do |f| %>
+      <div class="control-group">
         <%= f.label :login %>
-        <div class="input">
+        <div class="controls">
           <%= f.text_field :login, :autofocus => true %>
         </div>
       </div>
 
-      <div class="clearfix">
+      <div class="control-group">
         <%= f.label :password %>
-        <div class="input">
+        <div class="controls">
           <%= f.password_field :password %>
         </div>
       </div>
 
-      <div class="actions">
-        <%= f.submit "Sign in", :class => "btn primary" %>
+      <div class="form-actions">
+        <%= f.submit "Sign in", :class => "btn btn-primary" %>
         <%= f.submit "Reset", :type => "reset", :class => "btn" %>
       </div>
   <% end %>
