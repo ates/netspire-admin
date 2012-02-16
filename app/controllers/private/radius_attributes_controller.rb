@@ -2,7 +2,7 @@ class Private::RadiusAttributesController < PrivateController
   respond_to :html
 
   def index
-    @radius_attributes = RadiusAttribute.all
+    @radius_attributes = RadiusAttribute.all.paginate(:page => params[:page])
   end
 
   def new

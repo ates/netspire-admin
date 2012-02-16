@@ -2,7 +2,7 @@ class Private::ServicesController < PrivateController
   respond_to :html
 
   def index
-    @services = Service.all
+    @services = Service.all.paginate(:page => params[:page])
   end
 
   def new

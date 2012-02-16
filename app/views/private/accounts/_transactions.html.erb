@@ -1,3 +1,7 @@
+<script type="text/javascript">
+  $('.pagination a').attr('data-remote', 'true');
+</script>
+
 <table class="table">
   <thead>
     <tr>
@@ -20,3 +24,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= page_navigation @transactions %>

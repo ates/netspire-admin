@@ -2,7 +2,7 @@ class Private::AccountsController < PrivateController
   respond_to :html, :json
 
   def index
-    @accounts = Account.all
+    @accounts = Account.all.paginate(:page => params[:page])
   end
 
   def new
@@ -29,7 +29,7 @@ class Private::AccountsController < PrivateController
   end
 
   def transactions
-    @transactions = Transaction.by_login(params[:id])
+    @transactions = Transaction.by_login(params[:id]).paginate(:page => params[:page])
   end
 
   def service_links
