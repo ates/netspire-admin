@@ -29,4 +29,11 @@ class Admin
       view(:by_login, :key => conditions[:login], :limit => 1).first
     end
   end
+
+  def self.generate_token(column)
+    loop do
+      token = Devise.friendly_token
+      break token unless view(:"by_#{column}", :key => token, :limit => 1).first
+    end
+  end
 end
